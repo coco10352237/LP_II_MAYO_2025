@@ -34,7 +34,24 @@ public class ClienteImp implements ICliente {
 	} //fin del metodo....
 
 	public void ActualizarCliente(TblCliente cliente) {
-		// TODO Auto-generated method stub
+		//nos conectamos con la unidad de persist....
+				EntityManagerFactory emf=Persistence.createEntityManagerFactory("ProyectoJPAMysqlMiercoles");
+				//para administrar la entidades
+				EntityManager em=emf.createEntityManager();
+				try{
+				//iniciar transaccion
+				em.getTransaction().begin();
+				//invocamos al metodo registrar
+			     //actualizar....
+				em.merge(cliente);
+				//confirmamos 
+				em.getTransaction().commit();
+				}catch(RuntimeException e){
+					System.out.println(e.getMessage());
+				}finally{
+				//cerramos
+				em.close();
+				}
 		
 	} //fin del metodo...
 
