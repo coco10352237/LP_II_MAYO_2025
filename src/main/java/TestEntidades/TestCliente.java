@@ -23,11 +23,11 @@ public class TestCliente {
 		
 		//testeando el actualizar...
 		tblcliente.setIdcliente(1);
-		tblcliente.setNomcliente("flor de liz");
+		tblcliente.setNomcliente("luis miguel");
 		tblcliente.setApecliente("ramirez");
 		tblcliente.setDnicliente("45679799");
 		tblcliente.setEmaicliente("miguel@gmail.com");
-		tblcliente.setSexcliente("f");
+		tblcliente.setSexcliente("m");
 		tblcliente.setTelcliente("345679");
 		tblcliente.setNacioncliente("peruana");
 		//invocamos el metodo actualizar

@@ -1,8 +1,20 @@
 package Modelo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="tbl_usuario")
+@NamedQuery(name="TblUsuario.findAll",query="Select t from TblCliente t")
 public class TblUsuario {
 
 	//declaramos los atributos
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idusuario;
 	private String nomusuario;
 	private String passusuario;
