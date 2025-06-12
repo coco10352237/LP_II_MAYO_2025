@@ -56,7 +56,28 @@ public class ClienteImp implements ICliente {
 	} //fin del metodo...
 
 	public void EliminarCliente(TblCliente cliente) {
-		// TODO Auto-generated method stub
+		//nos conectamos con la unidad de persist....
+		EntityManagerFactory emf=Persistence.createEntityManagerFactory("ProyectoJPAMysqlMiercoles");
+		//para administrar la entidades
+		EntityManager em=emf.createEntityManager();
+		try{
+			//iniciamos la transaccion...
+			em.getTransaction().begin();
+			//recuperamos el codigo a eliminar
+			TblCliente codelim=em.find(TblCliente.class,cliente.getIdcliente());
+			//aplicamos una condicion
+			if(codelim!=null){
+				//procedemos a eliminar...
+				em.remove(codelim);
+				//confirmamos
+				em.getTransaction().commit();
+			}  //fin de la condicion....
+		}catch(RuntimeException ex){
+			System.out.println(ex.getMessage());
+		}finally{
+			//cerramos
+			em.close();
+		}//fin del finally
 		
 	}//fin del metodo...
 

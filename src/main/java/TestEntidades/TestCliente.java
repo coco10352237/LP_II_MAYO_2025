@@ -21,7 +21,7 @@ public class TestCliente {
 		cli.RegistrarCliente(tblcliente);
 		System.out.println("cliente registrado");*/
 		
-		//testeando el actualizar...
+		/*//testeando el actualizar...
 		tblcliente.setIdcliente(1);
 		tblcliente.setNomcliente("luis miguel");
 		tblcliente.setApecliente("ramirez");
@@ -32,8 +32,12 @@ public class TestCliente {
 		tblcliente.setNacioncliente("peruana");
 		//invocamos el metodo actualizar
 		cli.ActualizarCliente(tblcliente);
-		System.out.println("cliente actualizado");
-          
+		System.out.println("cliente actualizado");*/
+       //********testear el metodo eliminar...
+		tblcliente.setIdcliente(1);
+		//invoco al metodo eliminar
+		cli.EliminarCliente(tblcliente);
+		System.out.println("cliente eliminado");
 	} //fin del metodo principal.....
 
 } //fin de la clase..
