@@ -82,8 +82,26 @@ public class ClienteImp implements ICliente {
 	}//fin del metodo...
 
 	public List<TblCliente> ListadoCliente() {
-		// TODO Auto-generated method stub
-		return null;
+		//nos conectamos con la unidad de persist....
+		EntityManagerFactory emf=Persistence.createEntityManagerFactory("ProyectoJPAMysqlMiercoles");
+		//para administrar la entidades
+		EntityManager em=emf.createEntityManager();
+		List<TblCliente> listado=null;
+		try{
+			//iniciamos la transaccion
+			em.getTransaction().begin();
+			//hacemos la consulta en JPQL...
+	listado=em.createQuery("select c from TblCliente c",TblCliente.class).getResultList();
+			//confirmamos
+			em.getTransaction().commit();
+		}catch(RuntimeException ex){
+			System.out.println(ex.getMessage());
+		}finally{
+			//cerramos 
+			em.close();
+		} //fin de finally
+		//retornamos el listado...
+		return listado;
 	} //fin del metodo list...
 
 	public TblCliente BuscarCliente(TblCliente cliente) {
