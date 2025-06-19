@@ -41,7 +41,7 @@ public class TestCliente {
 		cli.EliminarCliente(tblcliente);
 		System.out.println("cliente eliminado");*/
 		//******testear el metodo listado
-		List<TblCliente> listar=cli.ListadoCliente();
+		/*List<TblCliente> listar=cli.ListadoCliente();
 		//aplicamos un bucle for...
 		for(TblCliente lis:listar){
 		//imprimimos por pantalla
@@ -50,7 +50,19 @@ public class TestCliente {
 		" nombre "+lis.getNomcliente()+
 		" apellido "+lis.getApecliente());
 		} //fin del bucle ...
+		*/
 		
+		//************testeamos el metodo buscar.....
+		
+		     //codigo a buscar...
+		 tblcliente.setIdcliente(2);
+		TblCliente cliente=cli.BuscarCliente(tblcliente);
+		//imprimimos por pantalla
+		System.out.println("codigo "+
+		cliente.getIdcliente()+
+		" nombre "+cliente.getNomcliente()+
+		" apellido "+cliente.getApecliente()+
+		" dni "+cliente.getDnicliente());
 		
 	} //fin del metodo principal.....
 
