@@ -7,7 +7,7 @@ import com.bd.jpa.modelo.TblProducto;
 public interface IProductoServicio {
 //declaramos los metodos
 	void RegistrarProducto(TblProducto tblprod);
-	void ActualizarProducto(TblProducto tblprod);
+	void EliminarProducto(TblProducto tblprod);
 	List<TblProducto> ListadoProductos();
 	TblProducto BuscarporId(Integer id);
 }//fin de la interface....

@@ -19,7 +19,7 @@ public class ProductoServicioImp implements IProductoServicio{
 	} //FIN DE DEL METODO....
 
 	@Override
-	public void ActualizarProducto(TblProducto tblprod) {
+	public void EliminarProducto(TblProducto tblprod) {
          //invocamos el metodo eliminar
 		iproductorepositorio.deleteById(tblprod.getIdproducto());
 	}//FIN DE DEL METODO....

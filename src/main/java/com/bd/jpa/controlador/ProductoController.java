@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -55,4 +56,36 @@ public class ProductoController {
 		//retornamos el  listado
 		return "redirect:/vistas/ListadoProductos";
 	} //fin del metodo.....
+	
+	//************** EDITAR....
+	//creamos el metodo editar...
+	@GetMapping("/editarproducto/{id}")
+	public String Editar(@PathVariable("id") Integer idproducto,Model modelo) {
+		
+		//creamos un objeto de tipo tblproducto.....
+		TblProducto clproducto=iproductoservicio.BuscarporId(idproducto);
+		//enviamos hacia la vista...
+		modelo.addAttribute("regproducto",clproducto);
+		//enviamos al frmregproducto...
+		return  "/Vistas/FrmRegProducto";
+		
+	} //fin del metodo editar
+	
+	//****************eliminar
+	   //creamos el metodo eliminar...
+	@GetMapping("/eliminarproducto/{id}")
+	public String eliminar(@PathVariable("id") Integer idproducto,Model modelo) {
+		TblProducto tblpro=new TblProducto();
+		tblpro.setIdproducto(idproducto);
+		 //aplicamos la inyeccion de dependencia....
+		iproductoservicio.EliminarProducto(tblpro);
+		//actualizamos el listado
+		List<TblProducto> listado=iproductoservicio.ListadoProductos();
+		//enviamos hacia la vista
+		modelo.addAttribute("listado",listado);
+		//redireccionamos
+		return "redirect:/Vistas/ListadoProductos";
+	}  //fin del metodo eliminar....
+	
+	
 }//fin de la clase....
